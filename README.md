@@ -1,6 +1,6 @@
 # Ghost WebHook
 
-Webhook to save users in Ghost service as a new member. Send a user's email and additional labels for him to store on Ghost
+Webhook to save users in Ghost service as a new member. Send a user's email and additional labels for him to store on Ghost.
 
 ## Requirements
 
