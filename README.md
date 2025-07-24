@@ -5,6 +5,7 @@ Webhook to save users in Ghost service as a new member. Send a user's email and 
 ## Requirements
 
 1. Bun 1.2.17+
+2. Vercel 43.3.0+
 
 ## Run WebHook
 
@@ -17,7 +18,7 @@ bun install
 2. To run a webhook:
 
 ```bash
-bun run index.ts
+bun run dev
 ```
 
 ## How to use
@@ -25,7 +26,16 @@ bun run index.ts
 Send a request:
 
 ```bash
-curl -X POST http://localhost:3000/webhook \
+# Local development
+curl -X POST http://localhost:3000/api/webhook \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "user@example.com",
+    "labels": ["newsletter", "premium"]
+  }'
+
+# Vercel deployment
+curl -X POST https://your-app.vercel.app/api/webhook \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@example.com",

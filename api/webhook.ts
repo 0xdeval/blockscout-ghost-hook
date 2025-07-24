@@ -1,14 +1,14 @@
-import express from "express";
-import bodyParser from "body-parser";
-import type { Labels, Response } from "./types";
-import { addMember } from "./ghost";
+import type { Labels, Response } from "./types.js";
+import { addMember } from "./ghost.js";
 
-const app = express();
-const PORT = 3000;
+export default async function handler(req: any, res: any) {
+  if (req.method !== "POST") {
+    return res.status(405).json({
+      success: false,
+      error: "Method not allowed",
+    });
+  }
 
-app.use(bodyParser.json());
-
-app.post("/webhook", async (req, res) => {
   const { email, labels } = req.body;
 
   if (!email || typeof email !== "string") {
@@ -53,10 +53,10 @@ app.post("/webhook", async (req, res) => {
       error: ghostResponse.data.errors,
     });
   }
-});
+}
 
-app.listen(PORT, () => {
-  console.log(
-    `🚀 Webhook server listening at http://localhost:${PORT}/webhook`
-  );
-});
+// app.listen(PORT, () => {
+//   console.log(
+//     `🚀 Webhook server listening at http://localhost:${PORT}/webhook`
+//   );
+// });
