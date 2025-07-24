@@ -54,9 +54,3 @@ export default async function handler(req: any, res: any) {
     });
   }
 }
-
-// app.listen(PORT, () => {
-//   console.log(
-//     `🚀 Webhook server listening at http://localhost:${PORT}/webhook`
-//   );
-// });
