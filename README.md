@@ -31,6 +31,7 @@ curl -X POST http://localhost:3000/api/webhook \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@example.com",
+    "name": "John",
     "labels": ["newsletter", "premium"]
   }'
 
@@ -39,6 +40,7 @@ curl -X POST https://your-app.vercel.app/api/webhook \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@example.com",
+    "name": "John",
     "labels": ["newsletter", "premium"]
   }'
 ```

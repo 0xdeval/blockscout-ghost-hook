@@ -19,6 +19,7 @@ if (!keyId || !secret) {
 
 export const addMember = async (
   email: string,
+  name: string,
   labels: Labels[]
 ): Promise<Response> => {
   try {
@@ -40,6 +41,7 @@ export const addMember = async (
         body: JSON.stringify({
           members: [
             {
+              name: name || email.split("@")[0],
               email,
               labels,
             },

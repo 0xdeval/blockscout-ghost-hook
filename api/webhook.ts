@@ -9,7 +9,7 @@ export default async function handler(req: any, res: any) {
     });
   }
 
-  const { email, labels } = req.body;
+  const { email, labels, name } = req.body;
 
   if (!email || typeof email !== "string") {
     return res.status(400).json({
@@ -40,7 +40,7 @@ export default async function handler(req: any, res: any) {
     }
   }
 
-  const ghostResponse = (await addMember(email, labelsToAdd)) as Response;
+  const ghostResponse = (await addMember(email, name, labelsToAdd)) as Response;
 
   if (ghostResponse.success) {
     res.status(200).json({
