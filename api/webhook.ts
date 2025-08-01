@@ -40,6 +40,12 @@ export default async function handler(req: any, res: any) {
     }
   }
 
+  console.log("Adding a user with the following metadata:", {
+    email,
+    name,
+    labels: labelsToAdd,
+  });
+
   const ghostResponse = (await addMember(email, name, labelsToAdd)) as Response;
 
   if (ghostResponse.success) {
